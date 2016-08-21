@@ -26,7 +26,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN	dpkg --add-architecture i386 && \
 
 # Set the time zone.
-	echo "Europe/Oslo" > /etc/timezone && \
+	echo "Europe/Paris" > /etc/timezone && \
 	dpkg-reconfigure -f noninteractive tzdata && \
 
 # Updating and upgrading a bit.
