@@ -1,11 +1,11 @@
 [Unit]
-Description = Space Engineers
+Description = Space Engineers Server in Docker
 Requires = docker.service
 After = docker.service
 
 [Service]
-User = saiban
-Group = saiban
+User = se-server
+Group = se-server
 
 Restart = always
 StandardInput = null
@@ -13,10 +13,10 @@ StandardOutput = journal
 StandardError = journal
 
 ExecStart = /usr/bin/docker run -t \
-	-p 27016:27016/udp \
-	-v /home/saiban/games/space-engineers/data:/host \
+	-p 25626:25626/udp \
+	-v /home/se-server/games/space-engineers/data:/host \
 	--name space_engineers_server \
-	saiban/space-engineers
+	se-server/space-engineers
 ExecStop = /usr/bin/docker stop space_engineers_server ; \
 	/usr/bin/docker rm -f space_engineers_server ; \
 	/bin/chmod 666 /dev/null
