@@ -12,13 +12,13 @@ Perform the following steps in the written order.
 - Create a new system user account which will own the container. The files in this repository assumes that the new user is named `saiban`. You can of course change this to whatever you prefer. Please note that the user ID must correspond to the ID specified in the Dockerfile. If you change it here, you should change it there.
 
 ```bash
-adduser --system --home /home/saiban --uid 256 --group --gecos "Space Engineers" saiban
+adduser --system --home /home/se-server --uid 256 --group --gecos "Space Engineers" se-server
 ```
 
 - Change to the new user and move into its home directory by issuing the following commands.
 
 ```bash
-sudo -u saiban /bin/bash
+su - se-server -s /bin/bash
 cd
  ```
 - Create the required directory structure.
@@ -31,12 +31,16 @@ mkdir -p games/space-engineers/data/Space\ Engineers/{Mods,Saves}
 - Clone this repository into the home directory of the new user account.
 
 ```bash
-git clone git@github.com:marjacob/se-server.git games/space-engineers/docker
+git clone https://github.com/g1franc/se-server.git games/space-engineers/docker
 ```
 
 - Obtain a copy of the most current `DedicatedServer.zip` and place it in `~/games/space-engineers/data`. You will usually find it in `[...]\SteamApps\SpaceEngineers\Tools\DedicatedServer.zip` (do not extract its contents).
 
-- Upload your `SpaceEngineers-Dedicated.cfg` and place it in `~/games/space-engineers/data/Space Engineers`. Use the one in this repository and edit it to your liking if you do not already have one.
+- Upload your `SpaceEngineers-Dedicated.cfg` and place it in `~/games/space-engineers/data/Space Engineers`. Use the one in this repository and edit it to your liking if you do not already have one or copy the one from the repository
+:
+```bash
+cp ./games/space-engineers/docker/SpaceEngineers-Dedicated.cfg ./games/space-engineers/data/Space\ Engineers
+```
 
 - Copy `space-engineers.service` from this repository to `/etc/systemd/system`. Do not forget to change the `User` and `Group` setting in this file if you did not go with the defaults.
 
