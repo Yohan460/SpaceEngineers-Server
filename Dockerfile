@@ -67,7 +67,7 @@ RUN	dpkg --add-architecture i386 && \
         wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && \
         tar -xvzf steamcmd_linux.tar.gz && \
 	# Download Space Engineers Dedicated Server
-	./steamcmd.sh +login anonymous +force_install_dir /home/root/.wine/drive_c/users/root/DedicatedServer +app_update 298740 +quit
+	./steamcmd.sh +login anonymous +force_install_dir /home/root/.wine/drive_c/users/root/DedicatedServer +app_update 298740 +quit && \
 
 # Cleaning up.
 	apt-get autoremove -y --purge build-essential git-core && \
