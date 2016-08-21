@@ -18,7 +18,7 @@ cat << EOF > ${entry_point}
 unzip -qq "/host/DedicatedServer.zip" -d "${wine_home}/"
 ln -s "/host/Space Engineers" "${se_appdata}"
 
-chown -R wine:wine "${se_appdata}/SpaceEngineers-Dedicated.cfg" "${se_home}"
+# chown: invalid user: 'wine:wine' <- chown -R wine:wine "${se_appdata}/SpaceEngineers-Dedicated.cfg" "${se_home}"
 
 exec wine "${se_home}/DedicatedServer/SpaceEngineersDedicated.exe" "\$@"
 
