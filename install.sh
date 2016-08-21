@@ -15,16 +15,15 @@ entry_point="/usr/local/bin/space-engineers-server"
 cat << EOF > ${entry_point}
 #!/usr/bin/env bash
 
-mkdir -p "${wine_appdata}"
-ln -s "/host" "${se_appdata}"
+unzip -qq "/host/DedicatedServer.zip" -d "${wine_home}/"
+ln -s "/host/Space Engineers" "${se_appdata}"
 
-# Set up a new server if no files where provided
-mkdir -p /host/docker /host/data /host/data/Mods /host/data/Saves 
-yes n | cp -i /home/root/SpaceEngineers-Dedicated.cfg /host/ && echo
+chown -R wine:wine "${se_appdata}/SpaceEngineers-Dedicated.cfg" "${se_home}"
 
 exec wine "${se_home}/DedicatedServer/SpaceEngineersDedicated.exe" "\$@"
 
 EOF
 
 chmod u+x "${entry_point}"
+chown -R wine:wine "${entry_point}"
 
