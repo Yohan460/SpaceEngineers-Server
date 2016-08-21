@@ -41,7 +41,7 @@ RUN	dpkg --add-architecture i386 && \
 	apt-get update && \
 
 # Installation of win, winetricks and temporary xvfb to install winetricks tricks during docker build.
-	apt-get install -y --no-install-recommends wine1.8 winetricks xvfb && \
+	apt-get install -y --no-install-recommends wine1.7 winetricks xvfb && \
 
 # Installation of winbind to stop ntlm error messages.
 	apt-get install -y --no-install-recommends winbind && \
