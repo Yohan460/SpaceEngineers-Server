@@ -76,8 +76,7 @@ RUN	dpkg --add-architecture i386 && \
 	apt-get autoremove -y --purge && \
 	apt-get clean -y && \
 	rm -rf /home/root/.cache && \
-	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-
+	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ######################### END OF INSTALLATIONS ##########################
 
