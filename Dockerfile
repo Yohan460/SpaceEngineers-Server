@@ -29,8 +29,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN	dpkg --add-architecture i386 && \
 
 # Set the time zone.
-	echo "Europe/Paris" > /etc/timezone && \
-	dpkg-reconfigure -f noninteractive tzdata && \
+	timedatectl set-timezone EST
 
 # Updating and upgrading a bit.
 	apt-get update && \
