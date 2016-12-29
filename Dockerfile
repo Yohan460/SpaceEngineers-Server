@@ -6,6 +6,9 @@
 FROM ubuntu:14.04
 MAINTAINER Guillaume FRANCOIS <guillaume.francois55@gmail.com>
 
+# Exposing the Space Engineers server port corresponding to the cfg file
+EXPOSE 25626
+
 RUN mkdir -p /home/root
 ENV HOME /home/root
 WORKDIR /home/root
